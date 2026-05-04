@@ -223,7 +223,7 @@ def _save_epoch(epoch, netG, netD, optG, optD, history, device, loader):
     )
 
     # Visualise reconstructions for the first batch
-    netG.eval()
+    netG.train(False)
     with torch.no_grad():
         batch      = next(iter(loader))
         input_t    = batch["input"][:4].to(device)

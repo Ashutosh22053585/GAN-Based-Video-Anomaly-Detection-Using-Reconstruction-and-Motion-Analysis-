@@ -106,7 +106,7 @@ def load_generator(checkpoint_path: str,
     netG = UNetGenerator().to(device)
     ckpt = torch.load(checkpoint_path, map_location=device)
     netG.load_state_dict(ckpt["netG"])
-    netG.eval()
+    netG.train(False)
     return netG
 
 

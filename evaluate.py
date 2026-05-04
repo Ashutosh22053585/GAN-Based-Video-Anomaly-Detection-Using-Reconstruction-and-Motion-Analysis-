@@ -294,7 +294,7 @@ def main(checkpoint: str,
     netG = UNetGenerator().to(device)
     ckpt = torch.load(checkpoint, map_location=device)
     netG.load_state_dict(ckpt["netG"])
-    netG.eval()
+    netG.train(False)
     print(f"[Evaluate] Loaded checkpoint: {checkpoint}")
 
     # Iterate over test clips
